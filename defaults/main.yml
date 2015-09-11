@@ -52,4 +52,3 @@ aspects_postfix_packages:
   postfixpcre:
     state: present
     Debian: postfix-pcre
-    RedHat: postfix-pcre
