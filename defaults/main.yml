@@ -1,0 +1,55 @@
+---
+# defaults file for aspects_postfix
+aspects_postfix_enabled: False
+
+aspects_postfix_master_cf: {}
+
+aspects_postfix_main_cf: {}
+
+aspects_postfix_mysql_virtual_alias_maps_conf: {}
+
+aspects_postfix_mysql_virtual_domains_maps_conf: {}
+
+aspects_postfix_mysql_virtual_mailbox_maps_conf: {}
+
+aspects_postfix_mysql_virtual_transport_maps_conf: {}
+
+aspects_postfix_templates:
+  master_cf:
+    enabled: True
+    templatefile: master.cf.j2
+    templatepath: /etc/postfix/master.cf
+  main_cf:
+    enabled: True
+    templatefile: main.cf.j2
+    templatepath: /etc/postfix/main.cf
+  mysql_virtual_alias_maps_conf:
+    enabled: False
+    templatefile: mysql_virtual_alias_maps.conf.j2
+    templatepath: /etc/postfix/mysql_virtual_alias_maps.conf
+  mysql_virtual_domains_maps_conf:
+    enabled: False
+    templatefile: mysql_virtual_domains_maps.conf.j2
+    templatepath: /etc/postfix/mysql_virtual_domains_maps.conf
+  mysql_virtual_mailbox_maps_conf:
+    enabled: False
+    templatefile: mysql_virtual_mailbox_maps.conf.j2
+    templatepath: /etc/postfix/mysql_virtual_mailbox_maps.conf
+  mysql_virtual_transport_maps_conf:
+    enabled: False
+    templatefile: mysql_virtual_transport_maps.conf.j2
+    templatepath: /etc/postfix/mysql_virtual_transport_maps.conf
+
+aspects_postfix_packages:
+  postfix:
+    state: present
+    Debian: postfix
+    RedHat: postfix
+  postfixmysql:
+    state: default
+    Debian: postfix-mysql
+    RedHat: postfix-mysql
+  postfixpcre:
+    state: present
+    Debian: postfix-pcre
+    RedHat: postfix-pcre

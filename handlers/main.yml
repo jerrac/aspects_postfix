@@ -1,0 +1,32 @@
+---
+# handlers file for aspects_postfix
+- name: restart postfix
+  service:
+    name: postfix
+    state: restarted
+    enabled: yes
+  tags:
+  - aspects_postfix
+
+- name: reload postfix
+  service:
+    name: postfix
+    state: reloaded
+    enabled: yes
+  tags:
+  - aspects_postfix
+
+- name: start postfix
+  service:
+    name: postfix
+    state: started
+    enabled: yes
+  tags:
+  - aspects_postfix
+
+- name: stop postfix
+  service:
+    name: postfix
+    state: stopped
+  tags:
+  - aspects_postfix

@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+
+{% for block in aspects_postfix_mysql_virtual_mailbox_maps_conf|sort %}
+{{ aspects_postfix_mysql_virtual_mailbox_maps_conf[block] }}
+{% endfor %}

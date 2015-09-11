@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+
+{% for block in aspects_postfix_main_cf|sort %}
+{{ aspects_postfix_main_cf[block] }}
+{% endfor %}
