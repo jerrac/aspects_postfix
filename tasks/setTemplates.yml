@@ -1,6 +1,6 @@
 ---
-- name: Debian - Set Postfix configuration file templates
-  when: ansible_os_family == "Debian" and item.value.enabled
+- name: Set Postfix configuration file templates
+  when: item.value.enabled
   template:
     src: "{{ item.value.templatefile }}"
     dest: "{{ item.value.templatepath }}"
