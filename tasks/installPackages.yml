@@ -17,8 +17,8 @@
     item.value.state != 'purged' and
     item.value.Debian is defined
   apt:
-    pkg: {{ item.value.Debian }}
-    state: {{ item.value.state }}
+    pkg: "{{ item.value.Debian }}"
+    state: "{{ item.value.state }}"
     update_cache: "yes"
     cache_valid_time: "86400"
   with_dict: aspects_postfix_packages
@@ -33,8 +33,8 @@
     item.value.state != 'purged' and
     item.value.RedHat is defined
   yum:
-    name: {{ item.value.RedHat }}
-    state: {{ item.value.state }}
+    name: "{{ item.value.RedHat }}"
+    state: "{{ item.value.state }}"
   with_dict: aspects_postfix_packages
   tags:
     - aspects_postfix
@@ -47,8 +47,8 @@
     item.value.state != 'purged' and
     item.value.Suse is defined
   zypper:
-    name: {{ item.value.Suse }}
-    state: {{ item.value.state }}
+    name: "{{ item.value.Suse }}"
+    state: "{{ item.value.state }}"
   with_dict: aspects_postfix_packages
   tags:
     - aspects_postfix
