@@ -40,6 +40,11 @@ aspects_postfix_templates:
     templatefile: mysql_virtual_transport_maps.conf.j2
     templatepath: /etc/postfix/mysql_virtual_transport_maps.conf
 
+aspects_postfix_authed_relay_enabled: False
+#aspects_postfix_authed_relay: ''
+#aspects_postfix_authed_relay_user: ''
+#aspects_postfix_authed_relay_password: ''
+
 aspects_postfix_packages:
   postfix:
     state: present
