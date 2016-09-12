@@ -4,7 +4,7 @@
   template:
     src: "{{ item.value.templatefile }}"
     dest: "{{ item.value.templatepath }}"
-  with_dict: aspects_postfix_templates
+  with_dict: "{{ aspects_postfix_templates }}"
   notify: reload postfix
   tags:
   - aspects_postfix

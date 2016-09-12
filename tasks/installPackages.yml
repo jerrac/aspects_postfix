@@ -1,7 +1,7 @@
 ---
 - name: Debian - Install python-apt for use with ansible apt modules.
   when: ansible_os_family == "Debian"
-  apt: 
+  apt:
     pkg: python-apt
     state: latest
     update_cache: "yes"
@@ -21,7 +21,7 @@
     state: "{{ item.value.state }}"
     update_cache: "yes"
     cache_valid_time: "86400"
-  with_dict: aspects_postfix_packages
+  with_dict: "{{ aspects_postfix_packages }}"
   tags:
     - aspects_postfix
     - aspects_postfix_package_install
@@ -35,7 +35,7 @@
   yum:
     name: "{{ item.value.RedHat }}"
     state: "{{ item.value.state }}"
-  with_dict: aspects_postfix_packages
+  with_dict: "{{ aspects_postfix_packages }}"
   tags:
     - aspects_postfix
     - aspects_postfix_package_install
@@ -49,7 +49,7 @@
   zypper:
     name: "{{ item.value.Suse }}"
     state: "{{ item.value.state }}"
-  with_dict: aspects_postfix_packages
+  with_dict: "{{ aspects_postfix_packages }}"
   tags:
     - aspects_postfix
     - aspects_postfix_package_install
