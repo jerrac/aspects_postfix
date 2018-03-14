@@ -47,13 +47,11 @@ aspects_postfix_authed_relay_enabled: False
 
 aspects_postfix_packages:
   postfix:
-    state: present
-    Debian: postfix
-    RedHat: postfix
-  postfixmysql:
-    state: default
-    Debian: postfix-mysql
-    RedHat: postfix-mysql
-  postfixpcre:
-    state: present
-    Debian: postfix-pcre
+    state: "present"
+    Ubuntu:
+      1404: "postfix"
+      1604: "postfix"
+    Debian:
+      9: "postfix"
+    CentOS:
+      7: "postfix"
