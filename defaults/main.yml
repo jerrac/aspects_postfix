@@ -41,9 +41,6 @@ aspects_postfix_templates:
     templatepath: /etc/postfix/mysql_virtual_transport_maps.conf
 
 aspects_postfix_authed_relay_enabled: False
-#aspects_postfix_authed_relay: ''
-#aspects_postfix_authed_relay_user: ''
-#aspects_postfix_authed_relay_password: ''
 
 aspects_postfix_packages:
   postfix:
