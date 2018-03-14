@@ -1,0 +1,16 @@
+---
+- include: installPackages.yml
+  when: aspects_postfix_enabled
+  tags:
+  - aspects_postfix
+
+- include: setTemplates.yml
+  when: aspects_postfix_enabled
+  tags:
+  - aspects_postfix
+
+- include: saslAuthRelay.yaml
+  when: aspects_postfix_authed_relay_enabled
+  tags:
+  - aspects_postfix
+  - aspects_postfix_sasl

@@ -1,18 +1,6 @@
 ---
-# tasks file for aspects_postfix
-
-- include: installPackages.yml
+- name: "Run this role when enabled."
   when: aspects_postfix_enabled
+  import_tasks: "tasks.yml"
   tags:
   - aspects_postfix
-
-- include: setTemplates.yml
-  when: aspects_postfix_enabled
-  tags:
-  - aspects_postfix
-
-- include: saslAuthRelay.yaml
-  when: aspects_postfix_authed_relay_enabled
-  tags:
-  - aspects_postfix
-  - aspects_postfix_sasl
