@@ -8,3 +8,14 @@
   notify: reload postfix
   tags:
   - aspects_postfix
+  - aspects_postfix_templates
+
+- name: Set Postfix transport template
+  when: aspects_postfix_template_transport.enabled
+  template:
+    src: "{{ aspects_postfix_template_transport.templatefile }}"
+    dest: "{{ aspects_postfix_template_transport.templatepath }}"
+  notify: postmap transport
+  tags:
+  - aspects_postfix
+  - aspects_postfix_templates

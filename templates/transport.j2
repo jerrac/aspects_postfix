@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+{% for block in aspects_postfix_transport|sort %}
+{{ aspects_postfix_transport[block] }}
+{% endfor %}

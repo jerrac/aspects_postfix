@@ -30,3 +30,8 @@
     state: stopped
   tags:
   - aspects_postfix
+
+- name: postmap transport
+  shell: "postmap {{ aspects_postfix_template_transport.templatepath }}"
+  tags:
+  - aspects_postfix

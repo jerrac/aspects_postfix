@@ -79,6 +79,45 @@ String. The username of the user you are authenticating with.
 String. The password of the user you are authenticating with. 
 > I suggest placing this value in a separate file encrypted by ansible-vault.
 
+### aspects_postfix_template_transport
+Used to configured transport map files.
+
+Set `aspects_postfix_template_transport` to `True` to enable tasks.
+
+Defaults:
+
+```yaml
+aspects_postfix_template_transport:
+  enabled: False
+  templatefile: transport.j2
+  templatepath: /etc/postfix/transport
+```
+
+Add the appropriate line to `main.cf` to let postfix know you are using transport maps.
+
+For example:
+
+```yaml
+aspects_postfix_main_cf:
+  00015transport_maps: |
+    transport_maps = hash:/etc/postfix/transport
+```
+
+### aspects_postfix_transport
+Dictionary/hash of transport map configuration blocks.
+
+Use the following pattern:
+
+```yaml
+aspects_postfix_transport:
+  <key>: |
+    <configuration>
+```
+
+The dictionary is filtered through the jinja sort function. Use prefixes as appropriate to set the order the blocks apply in.
+
+When the template task applies the configuration, the `postmap transport` handler will be fired. It runs `postmap {{ aspects_postfix_template_transport.templatepath }}` using the shell module.
+
 # Example Playbook
 
 ```yaml
@@ -90,6 +129,11 @@ String. The password of the user you are authenticating with.
     aspects_postfix_authed_relay: relay.example.org
     aspects_postfix_authed_relay_user: george_of_the_jungle
     aspects_postfix_authed_relay_password: watch_out_for_that_tree
+    aspects_postfix_template_transport:
+      enabled: True
+    aspects_postfix_transport:
+      123testing: |
+        example.com      uucp:example
     aspects_postfix_main_cf:
       00000smtpd_banner: |
         smtpd_banner = $myhostname ESMTP $mail_name
@@ -132,6 +176,8 @@ String. The password of the user you are authenticating with.
         smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
       00011userelayhost: |
         relayhost = {{ aspects_postfix_authed_relay }}
+      00015transport_map: |
+        transport_maps = hash:{{ aspects_postfix_template_transport.templatepath }}
     aspects_postfix_master_cf:
 #      00000header: |
 #        # ==========================================================================
