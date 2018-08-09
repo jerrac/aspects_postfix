@@ -112,6 +112,11 @@ The dictionary is filtered through the jinja sort function. Use prefixes as appr
 
 When the template task applies the configuration, the `postmap transport` handler will be fired. It runs `postmap {{ aspects_postfix_template_transport.templatepath }}` using the shell module.
 
+
+## Dependencies
+### aspects_packages
+`aspects_packages` is used to install and remove OS packages.
+
 # Example Playbook
 
 ```yaml
