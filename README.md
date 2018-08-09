@@ -13,15 +13,9 @@ Run the tasks in the role.
 Default is `False`.
 
 Set to `True` to run the tasks.
-## aspects_postfix_packages
-Dictionary/hash of packages to install or remove. Use the following pattern to add your own packages to the list. 
-```yaml
-aspects_firewalld_packages:
-  <package key>:
-    state: "<present or latest>"
-    <ansible_distribution>:
-      <ansible_distribution_version or ansible_distribution_major_version>: "<package name>"
-```
+## aspects_packages_packages
+Dictionary/hash of packages to install or remove. Uses the aspects_packages role. 
+
 ## Configuration Block Variables
 Each is a dictionary/hash that contain blocks of postfix configuration. Use the following pattern if you wish to add your own templates to the list.
 ```yaml

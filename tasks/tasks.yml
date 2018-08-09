@@ -1,17 +1,4 @@
 ---
-- name: "install postfix packages"
-  include: "{{ ansible_pkg_mgr}}InstallPackages.yml"
-  tags:
-    - aspects_postfix
-    - aspects_postfix_package_install
-
-- name: "remove postfix packages"
-  include: "{{ ansible_pkg_mgr}}RemovePackages.yml"
-  tags:
-    - aspects_postfix
-    - aspects_postfix_package_remove
-
-
 - include: setTemplates.yml
   when: aspects_postfix_enabled
   tags:
