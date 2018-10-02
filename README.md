@@ -64,6 +64,9 @@ aspects_postfix_templates:
 
 ## Authenticated Relay Configuration
 Postfix can authenticate to a remote relay server when sending email. Use the following to configure that functionality.
+
+> Note: `cyrus-sasl-plain` is installed by default on CentOS 7 and Oracle Linux 6 and 7. This package is required for sasl authentication to function.
+
 ### aspects_postfix_authed_relay_enabled
 Run the authenticated relay tasks, or not.
 
