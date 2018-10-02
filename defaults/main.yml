@@ -50,13 +50,17 @@ aspects_postfix_transport: {}
 
 aspects_postfix_authed_relay_enabled: False
 
-aspects_postfix_packages:
+aspects_packages_packages:
   postfix:
     state: "present"
     Ubuntu:
       1404: "postfix"
       1604: "postfix"
+      1804: "postfix"
     Debian:
       9: "postfix"
     CentOS:
+      7: "postfix"
+    OracleLinux:
+      6: "postfix"
       7: "postfix"
