@@ -64,3 +64,7 @@ aspects_packages_packages:
     OracleLinux:
       6: "postfix"
       7: "postfix"
+  cyrus-sasl-plain:
+    state: "present"
+    CentOS:
+      7: "cyrus-sasl-plain"
