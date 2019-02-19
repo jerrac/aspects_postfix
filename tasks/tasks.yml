@@ -9,3 +9,55 @@
   tags:
   - aspects_postfix
   - aspects_postfix_sasl
+
+- name: "CentOS 7 - set Postfix related /etc/alternative links"
+  when:
+    - ansible_distribution == "CentOS"
+    - ansible_distribution_major_version == "7"
+  alternatives:
+    name: "{{ item.value.name }}"
+    link: "{{ item.value.link }}"
+    path: "{{ item.value.path }}"
+  with_dict:
+    mta:
+      name: "mta"
+      link: "/etc/alternatives/mta"
+      path: "/usr/sbin/sendmail.postfix"
+    mta-aliasesman:
+      name: "mta-aliasesman"
+      link: "/etc/alternatives/mta-aliasesman"
+      path: "/usr/share/man/man5/aliases.postfix.5.gz"
+    mta-mailq:
+      name: "mta-mailq"
+      link: "/etc/alternatives/mta-mailq"
+      path: "/usr/bin/mailq.postfix"
+    mta-mailqman:
+      name: "mta-mailqman"
+      link: "/etc/alternatives/mta-mailqman"
+      path: "/usr/share/man/man1/mailq.postfix.1.gz"
+    mta-newaliases:
+      name: "mta-newaliases"
+      link: "/etc/alternatives/mta-newaliases"
+      path: "/usr/bin/newaliases.postfix"
+    mta-newaliasesman:
+      name: "mta-newaliasesman"
+      link: "/etc/alternatives/mta-newaliasesman"
+      path: "/usr/share/man/man1/newaliases.postfix.1.gz"
+    mta-pam:
+      name: "mta-pam"
+      link: "/etc/alternatives/mta-pam"
+      path: "/etc/pam.d/smtp.postfix"
+    mta-rmail:
+      name: "mta-rmail"
+      link: "/etc/alternatives/mta-rmail"
+      path: "/usr/bin/rmail.postfix"
+    mta-sendmail:
+      name: "mta-sendmail"
+      link: "/etc/alternatives/mta-sendmail"
+      path: "/usr/lib/sendmail.postfix"
+    mta-sendmailman:
+      name: "mta-sendmailman"
+      link: "/etc/alternatives/mta-sendmailman"
+      path: "/usr/share/man/man1/sendmail.postfix.1.gz"
+  tags:
+    - aspects_postfix
