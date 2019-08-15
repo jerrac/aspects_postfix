@@ -54,7 +54,6 @@ aspects_packages_packages:
   postfix:
     state: "present"
     Ubuntu:
-      1404: "postfix"
       1604: "postfix"
       1804: "postfix"
     Debian:
@@ -62,7 +61,6 @@ aspects_packages_packages:
     CentOS:
       7: "postfix"
     OracleLinux:
-      6: "postfix"
       7: "postfix"
   cyrus-sasl-plain:
     state: "present"
