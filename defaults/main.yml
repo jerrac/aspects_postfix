@@ -56,8 +56,10 @@ aspects_packages_packages:
     Ubuntu:
       1604: "postfix"
       1804: "postfix"
+      2004: "postfix"
     Debian:
       9: "postfix"
+      10: "postfix"
     CentOS:
       7: "postfix"
     OracleLinux:
