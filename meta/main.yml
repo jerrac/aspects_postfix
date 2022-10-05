@@ -3,22 +3,23 @@ galaxy_info:
   author: David Reagan
   description: Install and configure postfix.
   license: MIT
-  min_ansible_version: 2.8
+  min_ansible_version: 2.9
   platforms:
-  - name: CentOS
-    version:
-    - 7
-  - name: Ubuntu
-    versions:
-    - xenial
-    - bionic
-  - name: Debian
-    versions:
-    - stretch
-  - name: OracleLinux
-    versions:
-    - 7
+    - name: CentOS
+      version:
+        - 7
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+        - jammy
+    - name: Debian
+      versions:
+        - buster
+    - name: OracleLinux
+      versions:
+        - 7
   categories:
-  - system
+    - system
 dependencies:
   - { role: aspects_packages, when: aspects_packages_enabled and aspects_postfix_enabled }

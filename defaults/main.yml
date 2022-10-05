@@ -2,17 +2,17 @@
 # defaults file for aspects_postfix
 aspects_postfix_enabled: False
 
-aspects_postfix_master_cf: {}
+aspects_postfix_master_cf: { }
 
-aspects_postfix_main_cf: {}
+aspects_postfix_main_cf: { }
 
-aspects_postfix_mysql_virtual_alias_maps_conf: {}
+aspects_postfix_mysql_virtual_alias_maps_conf: { }
 
-aspects_postfix_mysql_virtual_domains_maps_conf: {}
+aspects_postfix_mysql_virtual_domains_maps_conf: { }
 
-aspects_postfix_mysql_virtual_mailbox_maps_conf: {}
+aspects_postfix_mysql_virtual_mailbox_maps_conf: { }
 
-aspects_postfix_mysql_virtual_transport_maps_conf: {}
+aspects_postfix_mysql_virtual_transport_maps_conf: { }
 
 aspects_postfix_templates:
   master_cf:
@@ -46,7 +46,7 @@ aspects_postfix_template_transport:
   templatefile: transport.j2
   templatepath: /etc/postfix/transport
 
-aspects_postfix_transport: {}
+aspects_postfix_transport: { }
 
 aspects_postfix_authed_relay_enabled: False
 
@@ -54,11 +54,10 @@ aspects_packages_packages:
   postfix:
     state: "present"
     Ubuntu:
-      1604: "postfix"
       1804: "postfix"
       2004: "postfix"
+      2204: "postfix"
     Debian:
-      9: "postfix"
       10: "postfix"
     CentOS:
       7: "postfix"
