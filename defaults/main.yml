@@ -59,10 +59,13 @@ aspects_packages_packages:
       2204: "postfix"
     Debian:
       10: "postfix"
+      11: "postfix"
     CentOS:
       7: "postfix"
     OracleLinux:
       7: "postfix"
+      8: "postfix"
+      9: "postfix"
   cyrus-sasl-plain:
     state: "present"
     CentOS:
