@@ -1,14 +1,14 @@
 ---
-- include: setTemplates.yml
+- include_tasks: setTemplates.yml
   when: aspects_postfix_enabled
   tags:
-  - aspects_postfix
+    - aspects_postfix
 
-- include: saslAuthRelay.yaml
+- include_tasks: saslAuthRelay.yaml
   when: aspects_postfix_authed_relay_enabled
   tags:
-  - aspects_postfix
-  - aspects_postfix_sasl
+    - aspects_postfix
+    - aspects_postfix_sasl
 
 - name: "CentOS 7 - set Postfix related /etc/alternative links"
   when:
